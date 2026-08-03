@@ -2,6 +2,22 @@ import telebot
 import os
 from telebot.types import ReplyKeyboardMarkup, KeyboardButton, BotCommand
 
+import threading
+from flask import Flask
+
+# یک وب‌سرور کوچک برای فریب دادن رندر و رایگان ماندن سرویس
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Bot is alive!"
+
+def run_web():
+    app.run(host='0.0.0.0', port=10000)
+
+# روشن کردن وب‌سرور در یک مسیر موازی
+threading.Thread(target=run_web).daemon = True
+
 # ==========================================
 # تنظیمات اصلی ربات (حتما پر کنید)
 # ==========================================
