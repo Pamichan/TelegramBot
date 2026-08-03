@@ -1,2 +1,2 @@
 # TelegramBot
-Rover bot fro telegram
+Rover bot for telegram
